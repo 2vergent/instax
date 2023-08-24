@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const axios = require('axios');
 const app = express();
 const cors = require("cors");
+
 const connectToMongo = async () => {
     try {
       mongoose.set("strictQuery", false);
@@ -13,6 +15,12 @@ const connectToMongo = async () => {
 };
 connectToMongo();
 
+app.use(express.json());
+app.use(cors());
+app.get("/", (req, resp) => {
+    resp.send("Backend is up and running");
+    console.log("Backend is up and running");
+});
 
 const UserSchema = new mongoose.Schema({
     username: {
@@ -27,29 +35,28 @@ const UserSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('users', UserSchema);
-
-
-app.use(express.json());
-app.use(cors());
-app.get("/", (req, resp) => {
-    resp.send("App is Working");
-    console.log("Working");
-});
     
-app.post("/register", (req, resp) => {
+app.post("/register", async (req, resp) => {
     const user = new User({
         username: req.body.username,
         password: req.body.password
     });
-    user.save();
+
+    const check = await User.findOne({username: user.username});
+    if(check) {
+        console.log("User exists");
+        resp.status(200).send("exists")
+    } else {
+        console.log("user doesn't exist")
+        resp.status(200).send("no exists")
+        user.save();
+    }
+
+    
     console.log(user);
-    resp.send(user);
-    console.log("Created Users");   
+    console.log("Created Users");
 });
- 
 
 app.listen(5000, () => {
     console.log("App listen at port 5000");
 });
-
-module.exports = connectToMongo;

@@ -1,10 +1,15 @@
 import './App.css';
-import Login from './Components/Login/login'
+import { Routes, Route } from 'react-router-dom';
+import Login from './Components/Login/login';
+import Feed from './Components/Feed/feed';
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      <Routes>
+          <Route exact path="/" element={<Login />} />
+          <Route exact path="/feed" element={<Feed />} />
+      </Routes>
     </div>
   );
 }
