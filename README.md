@@ -1,70 +1,33 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# **InstaX : A wannabe cool social media site**
+## **Prerequisites :**
+### **1. Node.js :**
+#### Download link : https://nodejs.org/en/download
+### **2. MongoDB Compass :**
+#### a) Download MongoDB Compass : https://downloads.mongodb.com/compass/mongodb-compass-1.39.2-win32-x64.exe
+## **Get the code :**
+### 1) Click `<> Code` and choose `Download ZIP`
+#### _Note : If you have GIT installed, then clone the repository using command ```git clone https://github.com/2vergent/instax.git```_
+### 2) Extract the ZIP by right-clicking the ZIP file and choose `Extract all`
+#### _(Optional) Move the extracted contents of the ZIP file to an easily accessible location_
+## **Initial code setup :**
+### 1) Open Command Prompt by searching `CMD` in start-menu
+### 2) Navigate to the folder, inside CMD, where you saved the extracted contents of the ZIP file
+### 3) Type `cd instax-main\instax-main`
+### 4) Type the following commands and press enter one after the other :
+```
+npm install
+cd backend
+npm install
+```
+### 5) Run MongoDB Compass and click `Connect` with the URL showing `mongodb://localhost:27017`
+## **Run InstaX :**
+### 1) Open CMD, navigate to the location of the code and type `npm start`
+### 2) A browser window will open with the URL `localhost:3000/login`
+### 3) Open a new CMD window, navigate to the location of the code and execute :
+```
+cd backend
+npx nodemon index.js
+```
+### 4) If you see `Connected to Mongo Successfully!`, then you are all set to go
+##
+_And Voila! InstaX is up and running_
