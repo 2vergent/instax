@@ -1,7 +1,9 @@
+import './signup.css'
 import React from "react";
-import { Button, Checkbox, Form, Input} from 'antd';
+import { Button, Form, Input, Divider} from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import axios from "axios";
+import instaxLogo from "../../Assets/instax_logo.png"
 
 const onFinish = (values) => {
     console.log(values);
@@ -24,63 +26,74 @@ const Signup = () => {
 
     
     return(
-        <div>
-			<Form
-			name="normal_login"
-			className="login-form"
-			initialValues={{
-				remember: true,
-			}}
-			onFinish={onFinish}
-			>
-			<Form.Item
-				name="username"
-				rules={[
-				{
-					required: true,
-					message: 'Please input your Username!',
-				},
-				]}
-			>
-				<Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
-			</Form.Item>
-			<Form.Item
-				name="password"
-				rules={[
-				{
-					required: true,
-					message: 'Please input your Password!',
-				},
-				]}
-			>
-				<Input
-				prefix={<LockOutlined className="site-form-item-icon" />}
-				type="password"
-				placeholder="Password"
+        <div className='signup-screen'>
+			<div className='logoNsignup'>
+				<div className='logo-login-space'>
+					<img className="instaxLogoSignup" src={instaxLogo}/>
+				</div>
+				<Divider 
+				type='vertical' 
+				className='center-divide-signup'
 				/>
-			</Form.Item>
-            <Form.Item
-				name="confirmPassword"
-				rules={[
-				{
-					required: true,
-					message: 'Please input your Password!',
-				},
-				]}
-			>
-				<Input
-				prefix={<LockOutlined className="site-form-item-icon" />}
-				type="password"
-				placeholder="Confirm Password"
-				/>
-			</Form.Item>
+				<div className='signup-main'>
+					<Form
+					name="normal_login"
+					className="signup-form"
+					initialValues={{
+						remember: true,
+					}}
+					onFinish={onFinish}
+					>
+					<Form.Item
+					name="username"
+					rules={[
+					{
+						required: true,
+						message: 'Please input your Username!',
+					},
+					]}
+					>
+						<Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+					</Form.Item>
+					<Form.Item
+					name="password"
+					rules={[
+					{
+						required: true,
+						message: 'Please input your Password!',
+					},
+					]}
+					>
+						<Input
+						prefix={<LockOutlined className="site-form-item-icon" />}
+						type="password"
+						placeholder="Password"
+						/>
+					</Form.Item>
+                    <Form.Item
+					name="confirmPassword"
+					rules={[
+					{
+						required: true,
+						message: 'Please input your Password!',
+					},
+					]}
+					>
+						<Input
+						prefix={<LockOutlined className="site-form-item-icon" />}
+						type="password"
+						placeholder="Password"
+						/>
+					</Form.Item>
 
-			<Form.Item>
-				<Button type="primary" htmlType="submit" className="login-form-button">
-				Signup
-				</Button>
-			</Form.Item>
-			</Form>
+					<Form.Item>
+						<Button type="primary" htmlType="submit" className="login-form-button">
+						Sign Up
+						</Button>
+					</Form.Item>
+					</Form>
+				</div>
+			</div>
 		</div>
     )
 };

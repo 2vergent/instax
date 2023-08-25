@@ -1,12 +1,68 @@
-#components-form-demo-normal-login .login-form {
-    max-width: 300px;
-}
-#components-form-demo-normal-login .login-form-forgot {
-    float: right;
-}
-#components-form-demo-normal-login .ant-col-rtl .login-form-forgot {
-    float: left;
-}
-#components-form-demo-normal-login .login-form-button {
+.login-screen {
+    display: flex;
     width: 100%;
+    height: 100vh;
+    background-color: #2C2C2C;
+}
+
+.logoNlogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.logo-space {
+    display: flex;
+    margin-bottom: 70px;
+}
+
+.instaxLogo {
+    width: 170px;
+    height: 170px;
+    margin: auto;
+    justify-content: center;
+}
+
+.center-divide {
+    height: 150px;
+    background-color: #fff;
+    width: 1px;
+    border-radius: 10px;
+    margin-bottom: 60px;
+    margin-right: 20px;
+}
+
+.login-main {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.divider-main {
+    color: #fff;
+    width: 10px;
+    height: 150px;
+}
+
+.login-form {
+    width: 300px;
+}
+
+.remember-text {
+    color: #fff;
+}
+
+.login-form-forget {
+    color: #fff;
+}
+
+.login-form-button {
+    width: 100%;
+}
+
+.register-text {
+    color: #fff;
+    padding: 10px;
 }
