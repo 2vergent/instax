@@ -1,213 +1,9 @@
+import './login.css'
 import React from "react";
 import axios from "axios";
-import { Button, Checkbox, Form, Input, Tabs } from 'antd';
-import './login.css'
-import { useState } from "react";
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Checkbox, Form, Input} from 'antd';
 import { useNavigate } from "react-router-dom";
-
-
-// const signupSection = () => {
-
-// 	const layout = {
-// 		labelCol: {
-// 			span: 8,
-// 		},
-// 		wrapperCol: {
-// 			span: 16,
-// 		},
-// 	};
-
-// 	const validateMessages = {
-// 		required: '${label} is required!',
-// 		types: {
-// 			email: '${label} is not a valid email!',
-// 			number: '${label} is not a valid number!',
-// 		},
-// 		number: {
-// 			range: '${label} must be between ${min} and ${max}',
-// 		},
-// 	};
-
-// 	const onFinish = (values) => {
-// 		console.log(values);
-// 		};
-
-// 	return(
-
-// 		<Form
-// 		{...layout}
-// 		name="nest-messages"
-// 		onFinish={onFinish}
-// 		style={{
-// 		maxWidth: 600,
-// 		}}
-// 		validateMessages={validateMessages}
-// 		>
-// 			<Form.Item
-// 			name={['user', 'name']}
-// 			label="Name"
-// 			rules={[
-// 				{
-// 				required: true,
-// 				},
-// 			]}
-// 			>
-// 			<Input />
-// 			</Form.Item>
-// 			<Form.Item
-// 			name={['user', 'email']}
-// 			label="Email"
-// 			rules={[
-// 				{
-// 				type: 'email',
-// 				},
-// 			]}
-// 			>
-// 			<Input />
-// 			</Form.Item>
-// 			<Form.Item
-// 			name={['user', 'age']}
-// 			label="Age"
-// 			rules={[
-// 				{
-// 				type: 'number',
-// 				min: 0,
-// 				max: 99,
-// 				},
-// 			]}
-// 			>
-// 			{/* <InputNumber /> */}
-// 			</Form.Item>
-// 			<Form.Item name={['user', 'website']} label="Website">
-// 			<Input />
-// 			</Form.Item>
-// 			<Form.Item name={['user', 'introduction']} label="Introduction">
-// 			<Input.TextArea />
-// 			</Form.Item>
-// 			<Form.Item
-// 			wrapperCol={{
-// 				...layout.wrapperCol,
-// 				offset: 8,
-// 			}}
-// 			>
-// 			<Button type="primary" htmlType="submit">
-// 				Submit
-// 			</Button>
-// 			</Form.Item>
-// 		</Form>
-// 	)
-
-	
-// };
-
-// const onChange = (key) => {
-// 	console.log(key);
-// };
-
-// const LoginSection = () => {
-
-	
-
-// 	const onFinish = (values) => {
-// 		// axios.post("/register",  {
-// 		// 	username: values.username,
-// 		// 	password: values.password
-// 		// })
-// 		// .then(res => {
-// 		// 	console.log(res);
-// 		// })
-// 		navigate("/feed");
-
-// 	};
-
-// 	const onFinishFailed = (errorInfo) => {
-// 		console.log('Failed:', errorInfo);
-// 	};
-
-// 	return(
-// 		<div>
-// 			<Form
-// 			name="basic"
-// 			labelCol={{
-// 			span: 8,
-// 			}}
-// 			wrapperCol={{
-// 			span: 16,
-// 			}}
-// 			style={{
-// 			maxWidth: 600,
-// 			}}
-// 			initialValues={{
-// 			remember: true,
-// 			}}
-// 			onFinish={onFinish}
-// 			onFinishFailed={onFinishFailed}
-// 			autoComplete="off"
-// 			>
-// 				<Form.Item
-// 				label="Username"
-// 				name="username"
-// 				rules={[
-// 					{
-// 					required: true,
-// 					message: 'Please input your username!',
-// 					},
-// 				]}
-// 				>
-// 				<Input />
-// 				</Form.Item>
-
-// 				<Form.Item
-// 				label="Password"
-// 				name="password"
-// 				rules={[
-// 					{
-// 					required: true,
-// 					message: 'Please input your password!',
-// 					},
-// 				]}
-// 				>
-// 				<Input.Password />
-// 				</Form.Item>
-
-// 				<Form.Item
-// 				name="remember"
-// 				valuePropName="checked"
-// 				wrapperCol={{
-// 					offset: 8,
-// 					span: 16,
-// 				}}
-// 				>
-// 				<Checkbox>Remember me</Checkbox>
-// 				</Form.Item>
-
-// 				<Form.Item
-// 				wrapperCol={{
-// 					offset: 8,
-// 					span: 16,
-// 				}}
-// 				>
-// 				<Button type="primary" htmlType="submit">
-// 					Submit
-// 				</Button>
-// 				</Form.Item>
-// 			</Form>
-// 		</div>
-// 	)
-// };
-
-// const items = [
-// 	{
-// 		key: '1',
-// 		label: 'Login',
-// 		children: LoginSection(),
-// 	},
-// 	{
-// 		key: '2',
-// 		label: 'Signup',
-// 		children: signupSection(),
-// 	}
-// ];
 
 
 const Login = () => {
@@ -215,98 +11,75 @@ const Login = () => {
 	const navigate = useNavigate();
 
 	const onFinish = (values) => {
-		axios.post("http://localhost:5000/register",  {
+		axios.post("http://localhost:5000/login",  {
 			username: values.username,
 			password: values.password
 		})
 		.then(res => {
-			if (res.data == "exists") {
+			if (res.data === "exists") {
 				navigate("/feed");
-			} else if (res.data == "no exists") {
-				alert("User has been added to DB");
-				navigate("/feed");
+			} else if (res.data === "no exists") {
+				alert("User not registered")
 			}
 		})
 		
 
 	};
 
-	const onFinishFailed = (errorInfo) => {
-		console.log('Failed:', errorInfo);
-	};
-
 	return(
-		<div>
-			{/* <Tabs defaultActiveKey="1" items={items} onChange={onChange} /> */}
-			<div>
+		
 			<Form
-			name="basic"
-			labelCol={{
-			span: 8,
-			}}
-			wrapperCol={{
-			span: 16,
-			}}
-			style={{
-			maxWidth: 600,
-			}}
+			name="normal_login"
+			className="login-form"
 			initialValues={{
-			remember: true,
+				remember: true,
 			}}
 			onFinish={onFinish}
-			onFinishFailed={onFinishFailed}
-			autoComplete="off"
 			>
-				<Form.Item
-				label="Username"
-				name="username"
-				rules={[
-					{
-					required: true,
-					message: 'Please input your username!',
-					},
-				]}
-				>
-				<Input />
-				</Form.Item>
-
-				<Form.Item
-				label="Password"
-				name="password"
-				rules={[
-					{
-					required: true,
-					message: 'Please input your password!',
-					},
-				]}
-				>
-				<Input.Password />
-				</Form.Item>
-
-				<Form.Item
-				name="remember"
-				valuePropName="checked"
-				wrapperCol={{
-					offset: 8,
-					span: 16,
-				}}
-				>
+			<Form.Item
+			name="username"
+			rules={[
+			{
+				required: true,
+				message: 'Please input your Username!',
+			},
+			]}
+			>
+				<Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+			</Form.Item>
+			<Form.Item
+			name="password"
+			rules={[
+			{
+				required: true,
+				message: 'Please input your Password!',
+			},
+			]}
+			>
+				<Input
+				prefix={<LockOutlined className="site-form-item-icon" />}
+				type="password"
+				placeholder="Password"
+				/>
+			</Form.Item>
+			<Form.Item>
+				<Form.Item name="remember" valuePropName="checked" noStyle>
 				<Checkbox>Remember me</Checkbox>
 				</Form.Item>
 
-				<Form.Item
-				wrapperCol={{
-					offset: 8,
-					span: 16,
-				}}
-				>
-				<Button type="primary" htmlType="submit">
-					Submit
+				<a className="login-form-forgot" href="">
+				Forgot password
+				</a>
+			</Form.Item>
+
+			<Form.Item>
+				<Button type="primary" htmlType="submit" className="login-form-button">
+				Log in
 				</Button>
-				</Form.Item>
+				Or <a href="/signup">register now!</a>
+			</Form.Item>
 			</Form>
-		</div>
-		</div>
+		
 		
 	)
 };
