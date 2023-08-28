@@ -40,20 +40,11 @@
     align-items: center;
 }
 
-
 .signup-form {
     width: 300px;
 }
 
-.remember-text {
-    color: #fff;
-}
-
-.login-form-forget {
-    color: #fff;
-}
-
-.login-form-button {
+.signup-form-button {
     width: 100%;
 }
 

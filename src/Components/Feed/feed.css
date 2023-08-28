@@ -1,0 +1,51 @@
+.header-main {
+    display: flex;
+    color: #fff;
+    background-color: #041e42;
+}
+
+.header-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.instax-logo-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.instax-logo {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.avatar-sample-main {
+    padding: 10px;
+}
+
+.avatar-sample {
+    cursor: pointer;
+}
+
+.content-main {
+    display: flex;
+    color: #fff;
+    height: 100vh;
+    background-color: #d1e5f4;
+}
+
+.feed-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+/* .footer-main {
+    color: #fff;
+    background-color: #041e42;
+} */

@@ -82,12 +82,12 @@ const Signup = () => {
 						<Input
 						prefix={<LockOutlined className="site-form-item-icon" />}
 						type="password"
-						placeholder="Password"
+						placeholder="Confirm Password"
 						/>
 					</Form.Item>
 
 					<Form.Item>
-						<Button type="primary" htmlType="submit" className="login-form-button">
+						<Button type="primary" htmlType="submit" className="signup-form-button">
 						Sign Up
 						</Button>
 					</Form.Item>

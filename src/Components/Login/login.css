@@ -2,6 +2,10 @@
     display: flex;
     width: 100%;
     height: 100vh;
+    background-image: url("../../Assets/instax_login_wallpaper.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     background-color: #2C2C2C;
 }
 
@@ -50,19 +54,19 @@
     width: 300px;
 }
 
-.remember-text {
-    color: #fff;
-}
-
-.login-form-forget {
-    color: #fff;
-}
-
 .login-form-button {
     width: 100%;
+    background-color: #041e42;
+}
+
+.login-form-button .ant-btn-primary:hover {
+    background-color: #005a9c;
 }
 
 .register-text {
-    color: #fff;
     padding: 10px;
+}
+
+.actual-register {
+    color: #041e42;
 }
