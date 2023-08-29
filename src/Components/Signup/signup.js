@@ -8,6 +8,7 @@ import instaxLogo from "../../Assets/instax_logo.png"
 const onFinish = (values) => {
     console.log(values);
     axios.post("http://localhost:5000/signup", {
+		name: values.name,
         username: values.username,
 		password: values.password
     })
@@ -44,6 +45,17 @@ const Signup = () => {
 					}}
 					onFinish={onFinish}
 					>
+					<Form.Item
+					name="name"
+					rules={[
+					{
+						required: true,
+						message: 'Please input your Full name!',
+					},
+					]}
+					>
+						<Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Name" />
+					</Form.Item>
 					<Form.Item
 					name="username"
 					rules={[

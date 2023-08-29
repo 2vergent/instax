@@ -1,0 +1,22 @@
+.profile-header-main {
+    background-color: #041e42;
+}
+
+.profile-avatar {
+    display: flex;
+    margin: auto;
+    padding: 20px;
+}
+
+.journal-menu {
+    width: 100%;
+}
+
+.ant-menu-submenu {
+    color: #fff;
+    background-color: #005a9c;
+}
+
+.ant-menu-item {
+    background-color: #0076ce;
+}

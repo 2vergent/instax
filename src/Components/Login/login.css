@@ -59,14 +59,20 @@
     background-color: #041e42;
 }
 
-.login-form-button .ant-btn-primary:hover {
-    background-color: #005a9c;
+.login-form-button:hover {
+    background-color: #005a9c !important;
 }
 
 .register-text {
     padding: 10px;
+    color: #fff;
 }
 
 .actual-register {
     color: #041e42;
+    padding-left: 10px;
+}
+
+.actual-register:hover {
+    color: #005a9c;
 }

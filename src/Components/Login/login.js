@@ -78,7 +78,7 @@ const Login = () => {
 						Log in
 						</Button>
 						<div className='register-text'>
-							Or <a className="actual-register" href="/signup">register now!</a>
+							Or <a className="actual-register" href="/signup">Register now!</a>
 						</div>
 					</Form.Item>
 					</Form>

@@ -5,9 +5,8 @@ import { Layout, Row, Col} from 'antd';
 import Sample from '../../Assets/sample_avatar.jpg';
 import InstaxLogo from '../../Assets/instax_logo.png';
 import { Avatar } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
-
-const {Content } = Layout;
 
 // const headerStyle = {
 // 	textAlign: 'center',
@@ -37,6 +36,13 @@ const {Content } = Layout;
 // };
 
 const Feed = () => {
+
+	const navigate = useNavigate();
+
+	const goToProfile = () => {
+		navigate("/profile");
+	}
+
 	return (
 		<Layout>
 			<Row align='middle' type='flex' gutter={[0,24]} className='header-main'>
@@ -62,7 +68,7 @@ const Feed = () => {
 				xl={12}
 				>
 					<div className='avatar-sample-main'>
-						<Avatar className="avatar-sample" size={45} src={Sample} />
+						<Avatar className="avatar-sample" size={45} src={Sample} onClick={goToProfile}/>
 					</div>
 				</Col>
 			</Row>

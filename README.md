@@ -1,9 +1,9 @@
-# **InstaX : A wannabe cool social media site**
+# **Pages : A social media app for journalers**
 ## **Prerequisites :**
 ### **1. Node.js :**
 #### Download link : https://nodejs.org/en/download
 ### **2. MongoDB Compass :**
-#### a) Download MongoDB Compass : https://downloads.mongodb.com/compass/mongodb-compass-1.39.2-win32-x64.exe
+#### Download MongoDB Compass : https://downloads.mongodb.com/compass/mongodb-compass-1.39.2-win32-x64.exe
 ## **Get the code :**
 ### 1) Click `<> Code` and choose `Download ZIP`
 #### _Note : If you have GIT installed, then clone the repository using command ```git clone https://github.com/2vergent/instax.git```_
@@ -12,8 +12,7 @@
 ## **Initial code setup :**
 ### 1) Open Command Prompt by searching `CMD` in start-menu
 ### 2) Navigate to the folder, inside CMD, where you saved the extracted contents of the ZIP file
-### 3) Type `cd instax-main\instax-main`
-### 4) Type the following commands and press enter one after the other :
+### 3) Type the following commands and press enter one after the other :
 ```
 npm install
 cd backend
@@ -26,8 +25,8 @@ npm install
 ### 3) Open a new CMD window, navigate to the location of the code and execute :
 ```
 cd backend
-npx nodemon index.js
+npm start
 ```
 ### 4) If you see `Connected to Mongo Successfully!`, then you are all set to go
 ##
-_And Voila! InstaX is up and running_
+## _And Voila! InstaX is up and running_

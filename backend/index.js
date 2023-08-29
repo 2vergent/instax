@@ -3,11 +3,10 @@ const express = require('express');
 const app = express();
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
+const User = require("./Models/userLog.model")
 
 mongoose.connect('mongodb://127.0.0.1:27017/instax');
 console.log("Connected to Mongo Successfully!");
-
-
 
 app.use(express.json());
 app.use(cors());
@@ -15,20 +14,6 @@ app.get("/", (req, resp) => {
     resp.send("Backend is up and running");
     console.log("Backend is up and running");
 });
-
-const UserSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        required: true,
-    },
-    password: {
-        type: String,
-        required: true,
-        unique: true,
-    }
-});
-
-const User = mongoose.model('users', UserSchema);
     
 app.post("/login", async (req, resp) => {
     const user = new User({
@@ -53,6 +38,7 @@ app.post("/login", async (req, resp) => {
 
 app.post("/signup", async (req, resp) => {
     const user = new User({
+        name: req.body.name,
         username: req.body.username,
         password: req.body.password
     });
@@ -61,7 +47,7 @@ app.post("/signup", async (req, resp) => {
         resp.status(200).send("NotUnique");
     } else {
         const hashedPass = await bcrypt.hash(user.password, 8);
-        User.insertMany({username: user.username, password: hashedPass});
+        User.insertMany({name: user.name, username: user.username, password: hashedPass});
         resp.status(200).send("Inserted");
     }
 })
