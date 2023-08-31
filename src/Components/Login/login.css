@@ -45,7 +45,7 @@
 }
 
 .divider-main {
-    color: #fff;
+    color: #000;
     width: 10px;
     height: 150px;
 }
@@ -56,23 +56,23 @@
 
 .login-form-button {
     width: 100%;
-    background-color: #041e42;
+    background-color: #000000;
 }
 
 .login-form-button:hover {
-    background-color: #005a9c !important;
+    background-color: #767676 !important;
 }
 
 .register-text {
     padding: 10px;
-    color: #fff;
+    color: #767676;
 }
 
 .actual-register {
-    color: #041e42;
+    color: #fff;
     padding-left: 10px;
 }
 
 .actual-register:hover {
-    color: #005a9c;
+    color: #767676;
 }

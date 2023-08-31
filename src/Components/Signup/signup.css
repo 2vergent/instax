@@ -22,14 +22,14 @@
 }
 
 .instaxLogoSignup {
-    width: 230px;
-    height: 230px;
+    width: 290px;
+    height: 290px;
     margin: auto;
     justify-content: center;
 }
 
 .center-divide-signup {
-    height: 200px;
+    height: 255px;
     background-color: #fff;
     width: 1px;
     border-radius: 10px;
@@ -50,9 +50,9 @@
 
 .signup-form-button {
     width: 100%;
-    background-color: #041e42;
+    background-color: #000;
 }
 
 .signup-form-button:hover {
-    background-color: #005a9c !important;
+    background-color: #767676 !important;
 }

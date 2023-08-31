@@ -4,7 +4,8 @@ import axios from "axios";
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Divider, Form, Input} from 'antd';
 import { useNavigate } from "react-router-dom";
-import instaxLogo from "../../Assets/instax_logo.png"
+import instaxLogo from "../../Assets/instax_logo.png";
+import pagesLogo from "../../Assets/pages_logo.png";
 
 
 const Login = () => {
@@ -31,7 +32,7 @@ const Login = () => {
 		<div className='login-screen'>
 			<div className='logoNlogin'>
 				<div className='logo-space'>
-					<img className="instaxLogo" src={instaxLogo}/>
+					<img className="instaxLogo" src={pagesLogo}/>
 				</div>
 				<Divider 
 				type='vertical' 
