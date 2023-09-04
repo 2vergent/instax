@@ -19,6 +19,7 @@ const Login = () => {
 		})
 		.then(res => {
 			if (res.data === "exists") {
+				localStorage.setItem("isAuth", "true");
 				navigate("/feed");
 			} else if (res.data === "no exists") {
 				alert("User not registered")

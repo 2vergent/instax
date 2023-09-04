@@ -18,7 +18,7 @@
 
 .logo-space {
     display: flex;
-    margin-bottom: 70px;
+    margin-bottom: 65px;
 }
 
 .instaxLogo {
@@ -30,7 +30,7 @@
 
 .center-divide {
     height: 150px;
-    background-color: #fff;
+    background-color: #111111;
     width: 1px;
     border-radius: 10px;
     margin-bottom: 60px;

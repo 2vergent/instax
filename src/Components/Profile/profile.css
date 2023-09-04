@@ -1,5 +1,5 @@
 .profile-header-main {
-    background-color: #041e42;
+    background-color: #111;
 }
 
 .profile-avatar {
@@ -14,9 +14,9 @@
 
 .ant-menu-submenu {
     color: #fff;
-    background-color: #005a9c;
+    background-color: #333333;
 }
 
 .ant-menu-item {
-    background-color: #0076ce;
+    background-color: #777777;
 }

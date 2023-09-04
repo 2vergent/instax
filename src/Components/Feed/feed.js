@@ -4,6 +4,7 @@ import { Layout, Row, Col} from 'antd';
 // import { AntDesignOutlined } from '@ant-design/icons';
 import Sample from '../../Assets/sample_avatar.jpg';
 import InstaxLogo from '../../Assets/instax_logo.png';
+import pagesLogo from '../../Assets/pages_logo.png';
 import { Avatar } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
@@ -54,10 +55,10 @@ const Feed = () => {
 				xl={12}
 				>
 					<div className='instax-logo-main'>
-						<img className='instax-logo' src={InstaxLogo} />
+						<img className='instax-logo' src={pagesLogo} />
 					</div>
 					<div className='instax-text'>
-						<h2>InstaX</h2>
+						<h2>Pages</h2>
 					</div>
 				</Col>
 				<Col className='avatar-main'
