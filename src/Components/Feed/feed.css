@@ -1,51 +1,38 @@
 .header-main {
+    background-color: #101010;
+}
+
+.header {
     display: flex;
-    color: #fff;
-    background-color: #111;
+    /* justify-content: center;
+    align-items: center; */
 }
 
-.header-text {
+.pages-logo {
+    width: 50px;
+    height: 50px;
+}
+
+.pages-text {
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.post-main {
+    
+}
+
+.post-header {
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.instax-logo-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
+.post-author {
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
 }
 
-.instax-logo {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+.post-content {
+    width: 200px;
+    height: 200px;
 }
-
-.avatar-sample-main {
-    padding: 10px;
-}
-
-.avatar-sample {
-    cursor: pointer;
-}
-
-.content-main {
-    display: flex;
-    color: #000;
-    height: 100vh;
-    background-color: #fcf5e5;
-}
-
-.feed-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-}
-
-/* .footer-main {
-    color: #fff;
-    background-color: #041e42;
-} */

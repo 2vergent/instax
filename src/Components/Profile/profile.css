@@ -1,5 +1,5 @@
 .profile-header-main {
-    background-color: #111;
+    background-color: #101010;
 }
 
 .profile-avatar {
@@ -8,15 +8,51 @@
     padding: 20px;
 }
 
-.journal-menu {
+.journal-list {
+    padding-left: 20px;
+    padding-right: 20px;
     width: 100%;
+    background-color: #ffecd1;
 }
 
-.ant-menu-submenu {
+.add-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
+    margin-top: 20px;
+    background-color: #000;
     color: #fff;
-    background-color: #333333;
+    
 }
 
-.ant-menu-item {
-    background-color: #777777;
+.collapse-main {
+    background-color: #111;
+    color: #fff;
+}
+
+.added-collapse {
+    background-color: #111;
+}
+
+.ant-collapse > .ant-collapse-item {
+    border: none;
+}
+
+.ant-collapse-header-text {
+    color: #fff;
+}
+
+.ant-collapse-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9c9c9c;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+}
+
+.test {
+    color: #fff;
 }

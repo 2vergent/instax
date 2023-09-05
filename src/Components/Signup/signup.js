@@ -3,7 +3,6 @@ import React from "react";
 import { Button, Form, Input, Divider} from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import axios from "axios";
-import instaxLogo from "../../Assets/instax_logo.png";
 import pagesLogo from "../../Assets/pages_logo.png";
 
 const onFinish = (values) => {

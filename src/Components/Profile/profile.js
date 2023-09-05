@@ -1,53 +1,88 @@
 import './profile.css'
-import React from "react";
-import { useState } from 'react';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
-import { Layout, Row, Col} from 'antd';
+import React, { useState } from "react";
+import { CaretRightOutlined, PlusOutlined } from '@ant-design/icons';
+import { Layout, Row, Col, Avatar, Button} from 'antd';
 import Sample from '../../Assets/sample_avatar.jpg';
-import InstaxLogo from '../../Assets/instax_logo.png';
-import { Avatar, Menu } from 'antd';
+import addIcon from '../../Assets/plus.png';
+import { Collapse, theme } from 'antd';
 
-function getItem(label, key, icon, children, type) {
-	return {
-		key,
-		icon,
-		children,
-		label,
-		type,
-	};
+
+const Test = () => {
+	return(
+		<div className='test'>
+			<h1>Your journals appear here</h1>
+		</div>
+	)
 }
-const items = [
-	getItem('Journal One', 'sub1', <MailOutlined />, [
-		getItem('Option 1', '1'),
-		getItem('Option 2', '2'),
-		getItem('Option 3', '3'),
-		getItem('Option 4', '4'),
-	]),
-	getItem('Journal Two', 'sub2', <AppstoreOutlined />, [
-		getItem('Option 5', '5'),
-		getItem('Option 6', '6'),
-		getItem('Submenu', 'sub3', null, [getItem('Option 7', '7'), getItem('Option 8', '8')]),
-	]),
-	getItem('Journal Three', 'sub4', <SettingOutlined />, [
-		getItem('Option 9', '9'),
-		getItem('Option 10', '10'),
-		getItem('Option 11', '11'),
-		getItem('Option 12', '12'),
-	]),
+
+const getItems = (panelStyle) => [
+  {
+    key: '1',
+    label: 'Journal',
+    children: <Test/>,
+    style: panelStyle,
+  },
 ];
 
-const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
+
+const BlankCollapse = () => {
+
+	const getItems = (panelStyle) => [
+		{
+		  key: '1',
+		  label: 'Journal',
+		  children: <Test/>,
+		  style: panelStyle,
+		},
+	];
+	const { token } = theme.useToken();
+	const panelStyle = {
+		marginTop: 20,
+		marginBottom: 20,
+		background: token.colorFillAlter,
+		borderRadius: token.borderRadiusLG,
+		border: 'none',
+	};
+
+	return(
+		<Collapse
+			bordered={false}
+			defaultActiveKey={['1']}
+			expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
+			style={{
+				background: token.colorBgContainer,
+			}}
+			items={getItems(panelStyle)}
+		/>
+	)
+}
+
+
+
 
 const Profile = () => {
 
-	const [openKeys, setOpenKeys] = useState(['sub1']);
-	const onOpenChange = (keys) => {
-		const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-		if (latestOpenKey && rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-			setOpenKeys(keys);
-		} else {
-			setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
-		}
+	// const[added, setAdded] = useState(false);
+
+	// const addCollapse = () => {
+	// 	setAdded(true);
+	// }
+
+	const {Panel} = Collapse;
+
+	const [collapseCount, setCollapseCount] = useState(0);
+
+	const addCollapsePanel = () => {
+		setCollapseCount(collapseCount + 1);
+	};
+
+	const { token } = theme.useToken();
+	const panelStyle = {
+		marginTop: 20,
+		marginBottom: 20,
+		background: token.colorFillAlter,
+		borderRadius: token.borderRadiusLG,
+		border: 'none',
 	};
 
 	return(
@@ -60,14 +95,44 @@ const Profile = () => {
 				</Col>
 			</Row>
 			<Row align='middle' type='flex' gutter={[0,24]} className='journal-main'>
-			<Menu
-				className='journal-menu'
-				mode="inline"
-				openKeys={openKeys}
-				onOpenChange={onOpenChange}
-				items={items}
-			/>
+				<Col className='journal-list'>
+					<Button 
+						className="add-button" 
+						shape='round'
+						size='large' 
+						icon={<PlusOutlined/>} 
+						onClick={addCollapsePanel}
+					>
+						Add
+					</Button>
+					<Collapse
+						className='collapse-main'
+						bordered={false}
+						// defaultActiveKey={['1']}
+						expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0}/>}
+						items={getItems(panelStyle)}
+					/>
+					<Collapse>
+						{[...Array(collapseCount)].map((_, index) => (
+						<Panel
+							className='added-collapse'
+							bordered={false}
+							header={`Journal ${index + 1}`} 
+							key={index}
+							style={{
+								marginBottom: 20,
+								borderRadius: token.borderRadiusLG,
+							}}
+						>
+							{/* Content for each collapse panel */}
+							{/* You can add your custom content here */}
+						</Panel>
+						))}
+					</Collapse>
+				</Col>
+
 			</Row>
+			
 		</Layout>
 	)
 };

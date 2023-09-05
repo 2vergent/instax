@@ -4,7 +4,6 @@ import axios from "axios";
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Divider, Form, Input} from 'antd';
 import { useNavigate } from "react-router-dom";
-import instaxLogo from "../../Assets/instax_logo.png";
 import pagesLogo from "../../Assets/pages_logo.png";
 
 
@@ -20,7 +19,7 @@ const Login = () => {
 		.then(res => {
 			if (res.data === "exists") {
 				localStorage.setItem("isAuth", "true");
-				navigate("/feed");
+				navigate("/home");
 			} else if (res.data === "no exists") {
 				alert("User not registered")
 			}

@@ -1,91 +1,33 @@
-import './feed.css'
-import React from 'react';
-import { Layout, Row, Col} from 'antd';
-// import { AntDesignOutlined } from '@ant-design/icons';
-import Sample from '../../Assets/sample_avatar.jpg';
-import InstaxLogo from '../../Assets/instax_logo.png';
+import './feed.css';
+import React from "react";
 import pagesLogo from '../../Assets/pages_logo.png';
-import { Avatar } from 'antd';
-import { useNavigate } from 'react-router-dom';
-
-
-// const headerStyle = {
-// 	textAlign: 'center',
-// 	color: '#fff',
-// 	height: 64,
-// 	paddingInline: 50,
-// 	lineHeight: '64px',
-// 	backgroundColor: '#7dbcea',
-// };
-// const contentStyle = {
-// 	textAlign: 'center',
-// 	minHeight: 120,
-// 	lineHeight: '120px',
-// 	color: '#fff',
-// 	backgroundColor: '#108ee9',
-// };
-// const siderStyle = {
-// 	textAlign: 'center',
-// 	lineHeight: '120px',
-// 	color: '#fff',
-// 	backgroundColor: '#3ba0e9',
-// };
-// const footerStyle = {
-// 	textAlign: 'center',
-// 	color: '#fff',
-// 	backgroundColor: '#7dbcea',
-// };
+import { Layout, Row, Col, Avatar } from 'antd';
+import Sample from '../../Assets/sample_avatar.jpg';
 
 const Feed = () => {
-
-	const navigate = useNavigate();
-
-	const goToProfile = () => {
-		navigate("/profile");
-	}
-
-	return (
-		<Layout>
-			<Row align='middle' type='flex' gutter={[0,24]} className='header-main'>
-				<Col className='header-text'
-				xs={24}
-				sm={24}
-				md={12}
-				lg={12}
-				xl={12}
-				>
-					<div className='instax-logo-main'>
-						<img className='instax-logo' src={pagesLogo} />
-					</div>
-					<div className='instax-text'>
-						<h2>Pages</h2>
-					</div>
-				</Col>
-				<Col className='avatar-main'
-				xs={24}
-				sm={24}
-				md={12}
-				lg={12}
-				xl={12}
-				>
-					<div className='avatar-sample-main'>
-						<Avatar className="avatar-sample" size={45} src={Sample} onClick={goToProfile}/>
-					</div>
-				</Col>
-			</Row>
-			<Row align='middle' type='flex' gutter={[0,24]} className='content-main'>
-				<Col className='feed-content'>
-					<h1>Feed</h1>
-				</Col>
-			</Row>
-			{/* <Content className='content-main'>
-				<div className='feed-content'>
-					<h1>Feed</h1>
-				</div>
-			</Content> */}
-			{/* <Footer className='footer-main'>Footer</Footer> */}
-		</Layout>
-	)
-};
+    return(
+        <Layout>
+            <Row justify='center' align='middle' className='header-main'>
+                <Col>
+                    <Row justify='center' align='middle'>
+                        <img className="pages-logo" src={pagesLogo}/>
+                        <p className='pages-text'>Pages</p>
+                    </Row>
+                </Col>
+            </Row>
+            <Row className='post-main'>
+                <Col className='post-header' lg={24}>
+                    <Row justify='center' align='middle'>
+                        <img className="post-author" src={Sample}/>
+                        <p>Vineeth</p>
+                    </Row>
+                </Col>
+                <Row>
+                    <h1>Post template</h1>
+                </Row>
+            </Row>
+        </Layout>
+    )
+}
 
 export default Feed;

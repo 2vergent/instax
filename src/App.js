@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from './Components/Login/login';
-import Feed from './Components/Feed/feed';
+import Home from './Components/Home/home';
 import Signup from './Components/Signup/signup';
 import Profile from './Components/Profile/profile';
 import { PrivateRoutes, PublicRoutes } from './Utils/protectRoute';
@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/signup" element={<Signup/>} />
         </Route>
         <Route element={<PrivateRoutes/>}>
-          <Route exact path="/feed" element={<Feed />} />
+          <Route exact path="/home" element={<Home />} />
           <Route exact path="/profile" element={<Profile />} />
         </Route>
       </Routes>
