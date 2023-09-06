@@ -1,6 +1,6 @@
 import './profile.css'
 import React, { useState } from "react";
-import { CaretRightOutlined, PlusOutlined } from '@ant-design/icons';
+import { CaretRightOutlined, PlusOutlined, UserOutlined } from '@ant-design/icons';
 import { Layout, Row, Col, Avatar, Button} from 'antd';
 import Sample from '../../Assets/sample_avatar.jpg';
 import addIcon from '../../Assets/plus.png';
@@ -46,8 +46,9 @@ const BlankCollapse = () => {
 
 	return(
 		<Collapse
+			
 			bordered={false}
-			defaultActiveKey={['1']}
+			// defaultActiveKey={['1']}
 			expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
 			style={{
 				background: token.colorBgContainer,
@@ -90,7 +91,7 @@ const Profile = () => {
 			<Row align='middle' type='flex' gutter={[0,24]} className='profile-header-main'>
 				<Col className='profile-avatar'>
 					<div className='avatar-profile-main'>
-						<Avatar className="avatar-profile" size={170} src={Sample} />
+						<Avatar className="avatar-profile" size={170} icon={<UserOutlined />} />
 					</div>
 				</Col>
 			</Row>
@@ -112,7 +113,10 @@ const Profile = () => {
 						expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0}/>}
 						items={getItems(panelStyle)}
 					/>
-					<Collapse>
+					<Collapse
+					expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0}/>}
+					>
+					
 						{[...Array(collapseCount)].map((_, index) => (
 						<Panel
 							className='added-collapse'
@@ -123,6 +127,7 @@ const Profile = () => {
 								marginBottom: 20,
 								borderRadius: token.borderRadiusLG,
 							}}
+							items={getItems(panelStyle)}
 						>
 							{/* Content for each collapse panel */}
 							{/* You can add your custom content here */}

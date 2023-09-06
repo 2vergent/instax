@@ -1,11 +1,9 @@
-.header-main {
+/* .header-main {
     background-color: #101010;
 }
 
 .header {
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
 }
 
 .pages-logo {
@@ -16,10 +14,6 @@
 .pages-text {
     padding-left: 10px;
     font-size: 20px;
-}
-
-.post-main {
-    
 }
 
 .post-header {
@@ -35,4 +29,17 @@
 .post-content {
     width: 200px;
     height: 200px;
+} */
+
+.ant-layout-content {
+    background-color: #ffecd1;
 }
+
+.header {
+    background-color: #101010;
+}
+
+.main {
+    background-color: aquamarine;
+}
+
