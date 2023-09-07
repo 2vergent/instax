@@ -12,28 +12,6 @@ import Feed from '../Feed/feed';
 
 const { Header, Content, Sider } = Layout;
 
-// const onChange = (key) => {
-// 	console.log(key);
-// };
-
-// const ProfileLabel = () => {
-// 	return(
-// 		<div className='label-main'>
-// 			<UserOutlined/>
-// 			<p>Profile</p>
-// 		</div>
-// 	)
-// }
-
-// const FeedLabel = () => {
-// 	return(
-// 		<div className='label-main'>
-// 			<BookOutlined/>
-// 			<p>Feed</p>
-// 		</div>
-// 	)
-// }
-
 const items = [
 	{
 		icon: <UserOutlined/>,
@@ -56,24 +34,7 @@ const Home = () => {
 	const [menuState, setMenuState] = useState("profile");
 
 	return (
-		// <Layout>
-		// 	<Row align='middle' type='flex' gutter={[0,24]} className='header-main'>
-		// 		<Col className='side-tab-bar-main'>
-		// 			{/* <div className='pages-logo-main'>
-		// 				<img className='pages-logo' src={pagesLogo}/>
-		// 			</div> */}
-		// 			<Tabs
-		// 			className='side-tab-bar'
-		// 			tabPosition='left'
-		// 			defaultActiveKey="1" 
-		// 			items={items} 
-		// 			onChange={onChange} 
-		// 			/>
-		// 		</Col>
-		// 	</Row>
-		// </Layout>
 		
-
 		<Layout style={{ minHeight: "100vh"}}>
 			<Sider
 			breakpoint="lg"
@@ -98,10 +59,8 @@ const Home = () => {
 						(key) => {
 							if (key.key == 2) {
 								setMenuState("feed");
-								console.log(menuState, key.key);
 							} else if (key.key == 1) {
 								setMenuState("profile");
-								console.log(menuState, key.key);
 							}
 						}
 					}	

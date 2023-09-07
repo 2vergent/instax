@@ -16,7 +16,7 @@ router.post("/", async (req, resp) => {
         resp.status(200).send("NotUnique");
     } else {
         const hashedPass = await bcrypt.hash(user.password, 8);
-        User.insertMany({name: user.name, username: user.username, password: hashedPass});
+        await User.insertMany({name: user.name, username: user.username, password: hashedPass});
         resp.status(200).send("Inserted");
     }
 })

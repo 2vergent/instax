@@ -25,34 +25,3 @@
     color: #fff;
     
 }
-
-.collapse-main {
-    background-color: #111;
-    color: #fff;
-}
-
-.added-collapse {
-    background-color: #111;
-}
-
-.ant-collapse > .ant-collapse-item {
-    border: none;
-}
-
-.ant-collapse-header-text {
-    color: #fff;
-}
-
-.ant-collapse-arrow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #9c9c9c;
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-}
-
-.test {
-    color: #fff;
-}

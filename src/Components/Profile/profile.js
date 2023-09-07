@@ -1,90 +1,52 @@
 import './profile.css'
 import React, { useState } from "react";
-import { CaretRightOutlined, PlusOutlined, UserOutlined } from '@ant-design/icons';
-import { Layout, Row, Col, Avatar, Button} from 'antd';
+import { CaretRightOutlined, PlusOutlined, UserOutlined, SettingOutlined, EditOutlined, EllipsisOutlined } from '@ant-design/icons';
+import { Layout, Row, Col, Avatar, Button, Modal, Input, Card} from 'antd';
 import Sample from '../../Assets/sample_avatar.jpg';
 import addIcon from '../../Assets/plus.png';
-import { Collapse, theme } from 'antd';
+import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { userName, userID } from '../../Store/store';
 
-
-const Test = () => {
-	return(
-		<div className='test'>
-			<h1>Your journals appear here</h1>
-		</div>
-	)
-}
-
-const getItems = (panelStyle) => [
-  {
-    key: '1',
-    label: 'Journal',
-    children: <Test/>,
-    style: panelStyle,
-  },
-];
-
-
-const BlankCollapse = () => {
-
-	const getItems = (panelStyle) => [
-		{
-		  key: '1',
-		  label: 'Journal',
-		  children: <Test/>,
-		  style: panelStyle,
-		},
-	];
-	const { token } = theme.useToken();
-	const panelStyle = {
-		marginTop: 20,
-		marginBottom: 20,
-		background: token.colorFillAlter,
-		borderRadius: token.borderRadiusLG,
-		border: 'none',
-	};
-
-	return(
-		<Collapse
-			
-			bordered={false}
-			// defaultActiveKey={['1']}
-			expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
-			style={{
-				background: token.colorBgContainer,
-			}}
-			items={getItems(panelStyle)}
-		/>
-	)
-}
-
-
+const { Meta } = Card;
+const {TextArea} = Input;
 
 
 const Profile = () => {
 
-	// const[added, setAdded] = useState(false);
+	const [user_name] = useRecoilState(userName);
 
-	// const addCollapse = () => {
-	// 	setAdded(true);
-	// }
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [journalText, setJournalText] = useState();
 
-	const {Panel} = Collapse;
+	const showModal = () => {
+		setIsModalOpen(true);
+	};
+	const handleOk = async () => {
 
-	const [collapseCount, setCollapseCount] = useState(0);
-
-	const addCollapsePanel = () => {
-		setCollapseCount(collapseCount + 1);
+		await axios.get("http://localhost:5000/post", {params: {username: user_name}})
+		.then(res => {
+			axios.post("http://localhost:5000/post",  {
+				id: res.data,
+				value: journalText,
+			})
+			.then(res => {
+				if (res.data === "Inserted") {
+					console.log("Written");
+				}
+			})
+		})
+		setIsModalOpen(false);
+	};
+	const handleCancel = () => {
+		setIsModalOpen(false);
 	};
 
-	const { token } = theme.useToken();
-	const panelStyle = {
-		marginTop: 20,
-		marginBottom: 20,
-		background: token.colorFillAlter,
-		borderRadius: token.borderRadiusLG,
-		border: 'none',
+	const gridStyle = {
+		width: '25%',
+		textAlign: 'center',
 	};
+
 
 	return(
 		<Layout>
@@ -102,38 +64,23 @@ const Profile = () => {
 						shape='round'
 						size='large' 
 						icon={<PlusOutlined/>} 
-						onClick={addCollapsePanel}
+						onClick={showModal}
 					>
 						Add
 					</Button>
-					<Collapse
-						className='collapse-main'
-						bordered={false}
-						// defaultActiveKey={['1']}
-						expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0}/>}
-						items={getItems(panelStyle)}
-					/>
-					<Collapse
-					expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0}/>}
-					>
-					
-						{[...Array(collapseCount)].map((_, index) => (
-						<Panel
-							className='added-collapse'
-							bordered={false}
-							header={`Journal ${index + 1}`} 
-							key={index}
-							style={{
-								marginBottom: 20,
-								borderRadius: token.borderRadiusLG,
-							}}
-							items={getItems(panelStyle)}
-						>
-							{/* Content for each collapse panel */}
-							{/* You can add your custom content here */}
-						</Panel>
-						))}
-					</Collapse>
+					<Modal title="New Journal Entry" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+						<TextArea rows={4} onChange={(e) => setJournalText(e.target.value)}/>
+					</Modal>
+					<Card title="Journal">
+						<Card.Grid style={gridStyle}>Journal</Card.Grid>
+						<Card.Grid style={gridStyle}>Journal</Card.Grid>
+						<Card.Grid style={gridStyle}>Journal</Card.Grid>
+						<Card.Grid style={gridStyle}>Journal</Card.Grid>
+						<Card.Grid style={gridStyle}>Journal</Card.Grid>
+						<Card.Grid style={gridStyle}>Journal</Card.Grid>
+						<Card.Grid style={gridStyle}>Journal</Card.Grid>
+						<Card.Grid style={gridStyle}>Journal</Card.Grid>
+					</Card>
 				</Col>
 
 			</Row>

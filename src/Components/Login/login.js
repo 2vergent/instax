@@ -5,13 +5,19 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Divider, Form, Input} from 'antd';
 import { useNavigate } from "react-router-dom";
 import pagesLogo from "../../Assets/pages_logo.png";
+import { useRecoilState } from 'recoil';
+import { userName, userID } from '../../Store/store';
 
 
 const Login = () => {
 
 	const navigate = useNavigate();
 
+	const [user_name, setUsername] = useRecoilState(userName);
+
 	const onFinish = (values) => {
+
+		setUsername(values.username);
 		axios.post("http://localhost:5000/login",  {
 			username: values.username,
 			password: values.password
